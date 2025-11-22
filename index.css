@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Navy & Gold Theme - Light Mode */
+    --background: 0 0% 98%;
+    --foreground: 210 65% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 65% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 65% 11%;
+
+    --primary: 210 65% 11%;
+    --primary-foreground: 43 74% 95%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 65% 11%;
+
+    --muted: 210 35% 92%;
+    --muted-foreground: 210 20% 45%;
+
+    --accent: 43 74% 53%;
+    --accent-foreground: 210 65% 11%;
+
+    --gold: 43 74% 53%;
+    --gold-light: 43 74% 68%;
+    --gold-dark: 43 74% 38%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 30% 88%;
+    --input: 210 30% 88%;
+    --ring: 43 74% 53%;
+
+    --radius: 0.75rem;
+    
+    /* Gradients */
+    --gradient-navy-gold: linear-gradient(135deg, hsl(210 65% 11%) 0%, hsl(210 50% 20%) 50%, hsl(43 74% 53% / 0.3) 100%);
+    --gradient-gold-shine: linear-gradient(90deg, hsl(43 74% 38%) 0%, hsl(43 74% 53%) 50%, hsl(43 74% 68%) 100%);
+    
+    /* Shadows */
+    --shadow-gold: 0 10px 40px -10px hsl(43 74% 53% / 0.4);
+    --shadow-elegant: 0 20px 60px -15px hsl(210 65% 11% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Navy & Gold Theme - Dark Mode (Default) */
+    --background: 210 65% 8%;
+    --foreground: 43 74% 95%;
+
+    --card: 210 60% 12%;
+    --card-foreground: 43 74% 95%;
+
+    --popover: 210 60% 12%;
+    --popover-foreground: 43 74% 95%;
+
+    --primary: 43 74% 53%;
+    --primary-foreground: 210 65% 11%;
+
+    --secondary: 210 50% 15%;
+    --secondary-foreground: 43 74% 95%;
+
+    --muted: 210 50% 15%;
+    --muted-foreground: 43 30% 70%;
+
+    --accent: 43 74% 53%;
+    --accent-foreground: 210 65% 11%;
+
+    --gold: 43 74% 53%;
+    --gold-light: 43 74% 68%;
+    --gold-dark: 43 74% 38%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 40% 20%;
+    --input: 210 40% 20%;
+    --ring: 43 74% 53%;
+    
+    /* Dark mode gradients */
+    --gradient-navy-gold: linear-gradient(135deg, hsl(210 65% 8%) 0%, hsl(210 55% 15%) 50%, hsl(43 74% 53% / 0.2) 100%);
+    --gradient-gold-shine: linear-gradient(90deg, hsl(43 74% 38%) 0%, hsl(43 74% 53%) 50%, hsl(43 74% 68%) 100%);
+    
+    --shadow-gold: 0 10px 40px -10px hsl(43 74% 53% / 0.5);
+    --shadow-elegant: 0 20px 60px -15px hsl(0 0% 0% / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-cairo;
+    direction: rtl;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-navy-gold {
+    background: var(--gradient-navy-gold);
+  }
+  
+  .gradient-gold-shine {
+    background: var(--gradient-gold-shine);
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold-shine);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 10px hsl(43 74% 53% / 0.5));
+  }
+  to {
+    filter: drop-shadow(0 0 20px hsl(43 74% 53% / 0.8));
+  }
+}
